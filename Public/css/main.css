@@ -1,0 +1,66 @@
+* {
+  font-family: Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", "Hiragino Sans GB", Simsun, sans-self;
+}
+nav {
+  margin-top: 40px;
+}
+.xhc-word {
+  width: 60%;
+  margin: auto;
+}
+.xhc-word > h1 {
+  font-size: 65px;
+  font-weight: bold;
+}
+.content {
+  height: 580px;
+   background: url(images/u6.png)no-repeat;
+   position: relative;
+   top:-50px;
+}
+.shuru {
+  position: relative;
+  top:150px;
+}
+.gonggao {
+  height: 280px;
+  width: 40%;
+  margin: auto;
+  position: relative;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  /* Old Firefox */
+  top: 300px;
+  text-align: center;
+  background: #878787;
+}
+.gonggao > li {
+  width: 100%;
+  line-height: 33px;
+  text-align: center;
+  list-style-type: none;
+  margin-left: -20px;
+  padding-bottom: 10px;
+  font-size: 40px;
+  color: #fff;
+  border-bottom: solid 1px #fff;
+}
+.foot {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  top: 20px;
+  left:-24px;
+  list-style-type: none;
+  text-align: center;
+}
+.foot li {
+  border-top:1px solid #787878;
+  line-height: 50px;
+}
+.foot li a{
+  text-decoration: none;
+  
+}
+
+//管理员界面
