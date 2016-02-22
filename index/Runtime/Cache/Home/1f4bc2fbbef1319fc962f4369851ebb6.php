@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>登录</title>
 	<link rel="shortcut icon" href="images/icon/icon.ico" />
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/car-thinkphp/Public/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/car-thinkphp/Public/css/main.css">
 	<style type="text/css">
 		
 	</style>
@@ -64,8 +64,8 @@
 </footer><!-- footer结束 -->
 	
 </body>
-<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/car-thinkphp/Public/js/jquery.js"></script>
+<script type="text/javascript" src="/car-thinkphp/Public/js/bootstrap.min.js"></script>
 <script type="text/javascript" >
 	$(function () {
 
@@ -76,7 +76,7 @@
 				$('#alert').show()
 				.children().text("账号或密码不能为空");
 			}else{
-				var url = "{:U('Login/Login')}";
+				var url = "<?php echo U('Login/Login');?>";
 				$.post(url, {"username" : username , "password" : password}, function(data) {
 					switch(data) {
 						case  '0' :
