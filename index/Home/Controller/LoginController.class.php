@@ -34,15 +34,14 @@ class LoginController extends Controller {
 				echo '2';//不同用户
 				break;
 			}
-			//默认自动登录
-			$username = $user['username'];
+			// 默认自动登录
+			$username = $user['username']; 
 			$ip = get_client_ip();
-			$value = $username . '|' .$ip;
+			$value = $username . '|' .$ip ;
 			$value = encryption($value);
 			@setcookie('auto', $value, C('AUTO_LOGIN_TIME'), '/');
 			// 把id写入session
-			session_start('uid', $user['id']);
-			die;
+			session_start('uid', $user['id']);die;
 		} 
 		echo '4';//登录失败
 		

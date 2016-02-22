@@ -1,8 +1,50 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class IndexController extends Controller {
-    public function index(){
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+
+class IndexController extends CommonController {
+    
+    public function index ()
+    {	
+    	// echo $_SESSION['uid'];die;
+       $where['id'] = $_SESSION['uid'];
+       $user = M('user') -> where($where) -> find();
+       // echo $user['pock'];die;
+       // 普通用户页
+       if ($user['pock'] == '2') {
+       	 $this->display();
+       } 
+       //管理员
+       if ($user['pock'] == '0') {
+       	 redirect(U('Index/admin'));
+       }
+       //门卫
+       if ($user['pock'] == '1') {
+       	 redirect(U('Index/doorkeeper'));
+       } 
+         
+    }
+    //管理员
+    public function admin ()
+    {
+    	$this -> display();
+    }
+    public function doorkeeper () 
+    {
+    	$this -> display();
+    }
+    // 退出管理
+    public function loginOut ()
+    {
+    	session_unset();
+    	session_destroy();
+      setcookie("auto", "", time()-3600);
+
+    	redirect(U('Login/index'));
+    }
+    //个人设置
+    public function profile () 
+    {
+        $this->display();
     }
 }
