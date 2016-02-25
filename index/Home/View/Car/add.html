@@ -14,36 +14,25 @@
 <div class="containner">
     <div class="row">
         <div class="col-sm-4 col-sm-offset-2" >
-             <form action="__ROOT__/index.php/Home/User/addUser" method="post">
+             <form action="__ROOT__/index.php/Home/File/addUser" method="post">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">登录名</label>
-                    <input type="text" class="form-control" name="username" placeholder="6-11位字母与数字">
+                    <label for="exampleInputEmail1">姓名</label>
+                    <input type="text" class="form-control" name="username" >
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">密码</label>
-                    <input type="password" class="form-control" name="password" placeholder="6-11位字母与数字">
+                    <label for="exampleInputPassword1">性别</label>
+                    <input type="text" class="form-control" name="sex">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">密码</label>
-                    <input type="password" class="form-control" name="password1" placeholder="6-11位字母与数字">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">部门</label>
-                    <input type="text" class="form-control" name="section" placeholder="输入部门">
+                    <label for="exampleInputPassword1">身份证</label>
+                    <input type="text" class="form-control" name="card" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">电话</label>
-                    <input type="text" class="form-control" name="tel" placeholder="输入部门电话">
+                    <input type="text" class="form-control" name="tell" >
                   </div>
-                  <div class="form-group">
-                      <label>选择类型</label>
-                      <select name="type">
-                          <option value="1">普通用户</option>
-                          <option value="2">门卫</option>
-                          <option value="3">管理员</option>
-                      </select>
-                  </div>
-                  <button type="submit" class="btn btn-primary">注册</button>
+                  
+                  <button type="submit" class="btn btn-primary">新增</button>
               </form>
         </div>
     </div>

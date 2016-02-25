@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>用户管理</title>
+	<title>车辆管理</title>
 	<link rel="shortcut icon" href="images/icon/icon.ico" />
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/main.css">
-	<style type="text/css"></style>
+	<style type="text/css"></style> 
 </head>
 <body>
 <header role="banner" >
@@ -24,7 +24,7 @@
         <div class="navbar-collapse collapse " style="line-height: 90px;position: relative;left: 100px;">
           <ul class="nav navbar-nav nav-top" >
             <li class="dropdown " style="margin-left: 25px;">
-                <button type="button" class="btn btn-default btn-lg">
+                <button type="button" class="btn btn-primary  btn-lg">
 				  <span class="glyphicon glyphicon-briefcase" aria-hidden="true">档案管理</span>
 				</button>
             </li>
@@ -39,7 +39,7 @@
 				</button>
             </li>
             <li class="dropdown" style="margin-left: 25px;">
-                <button type="button" class="btn btn-primary btn-lg ">
+                <button type="button" class="btn  btn-lg btn-default">
 				  <span class="glyphicon glyphicon-paperclip" aria-hidden="true">系统设置</span>
 				</button>
             </li>
@@ -49,9 +49,9 @@
 				</button>
             </li>
             <li class="dropdown" style="margin-left: 25px;">
-                <a href="{:U('Index/LoginOut')}" style="margin-top:13px">
-                    <button type="button" class="btn btn-danger "><span class="glyphicon glyphicon-off" aria-hidden="true">退出</span></button>
-                </a>
+                <button type="button" class="btn btn-danger ">
+                  <span class="glyphicon glyphicon-off" aria-hidden="true">退出</span>
+                </button>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -61,7 +61,9 @@
 
 <main role="main">
         <div class="list-group" style="width: 13%;height:495px;position: relative;left:10%;border: 1px solid #878787;padding:8px;display: inline-block;vertical-align: top;">
-            <button type="button" class="list-group-item active" style="margin-bottom: 15px">用户管理</button>
+            <button type="button" class="list-group-item " style="margin-bottom: 15px">车辆管理</button>
+            <button type="button" class="list-group-item active" style="margin-bottom: 15px">驾驶员管理</button>
+            <button type="button" class="list-group-item " style="margin-bottom: 15px">用车情况</button>
         </div>
         <div style="width:68%;height: 495px;border: 1px solid #878787;display: inline-block;vertical-align: top;position: relative;left:11%;">
         <button  id="add-btn" type="button" class="btn btn-primary" style="margin:10px 100px">新增</button>
@@ -70,40 +72,33 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>登录名</th>
-                <th>用户类型</th>
-                <th>部门</th>
-                <th>部门电话</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>身份证</th>
+                <th>电话</th>
                 <th>状态</th>
                 <th>操作</th>
               </tr>
             </thead>
             <tbody>
-            <foreach name="user" item="vo">
+              <foreach name="list" item="vo">
                 <tr>
                     <th scope="row">{$vo.id}</th>
-                    <td>{$vo.username}</td>
-                    <td> <switch name="vo.pock">
-                            <case value="0">管理员</case>
-                            <case value="2">普通用户</case>
-                            <case value="1">门卫</case>
-                        </switch>
-                    </td>
-                    <td>{$vo.section}</td>
-                    <td>{$vo.tel}</td>
+                    <td>{$vo.driver_name}</td>
+                    <td>{$vo.driver_sex}</td>
+                    <td>{$vo.driver_card}</td>
+                    <td>{$vo.driver_tell}</td>
                     <td>
-                        <switch name="vo.lock">
+                        <switch name="vo.driver_type">
                                 <case value="0">正常</case>
                                 <case value="1">锁定</case>
                         </switch>
                     </td>
-                    <td><a href="__ROOT__/index.php/Home/User/alert?id={$vo.id}">改密</a> | <a href="__ROOT__/index.php/Home/User/cloce?id={$vo.id}">改态</a> | <a href="__ROOT__/index.php/Home/User/del?id={$vo.id}">删除</a></td>
+                    <td><a href="__ROOT__/index.php/Home/File/alert?id={$vo.id}">修改</a> | <a href="__ROOT__/index.php/Home/File/cloce?id={$vo.id}">改态</a> | <a href="__ROOT__/index.php/Home/File/del?id={$vo.id}">删除</a></td>
                   </tr>
             </foreach>
-              
             </tbody>
           </table>
-          {$page}
     </div><!-- /.table-responsive -->
         </div>
         <!-- <div class="container">
@@ -129,11 +124,11 @@
 </footer><!-- footer结束 -->
 	
 </body>
-<script  src="__PUBLIC__/js/jquery.js"></script>
-<script  src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
 <script  src="__PUBLIC__/js/layer.js"></script>
 <script >
-    ;!function(){
+;!function(){
 
 //加载扩展模块
 layer.config({
@@ -151,11 +146,12 @@ $('#add-btn').click(function(){
         shadeClose: true,
         maxmin: true,
         area: ['60%', '80%'],
-        content: '__ROOT__/index.php/Home/User/add.html',
+        content: '__ROOT__/index.php/Home/File/add.html',
         });
     
 });
 
 
 }();
+</script>
 </html>
