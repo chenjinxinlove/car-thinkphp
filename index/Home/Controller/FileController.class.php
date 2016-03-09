@@ -73,10 +73,11 @@ class FileController extends CommonController {
         $sex = I('post.sex','','htmlspecialchars');
         $tell = I('post.tell','','htmlspecialchars');
         $card = I('post.card','','htmlspecialchars');
-        $data['driver_name'] = $username;
-        $data['driver_sex'] = $sex;
-        $data['driver_card'] = $card;
-        $data['driver_tell'] = $tell;
+        $data['name'] = $username;
+        $data['sex'] = $sex;
+        $data['card'] = $card;
+        $data['tell'] = $tell;
+        // p($data);die;
         if (M('driver') -> add($data)) {
             $this -> success ('新增成功！');die;
         }

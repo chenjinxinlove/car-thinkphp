@@ -61,8 +61,8 @@
 
 <main role="main">
         <div class="list-group" style="width: 13%;height:495px;position: relative;left:10%;border: 1px solid #878787;padding:8px;display: inline-block;vertical-align: top;">
-            <button type="button" class="list-group-item " style="margin-bottom: 15px">车辆管理</button>
-            <button type="button" class="list-group-item active" style="margin-bottom: 15px">驾驶员管理</button>
+            <button type="button" class="list-group-item active" style="margin-bottom: 15px">车辆管理</button>
+            <button type="button" class="list-group-item " style="margin-bottom: 15px">驾驶员管理</button>
             <button type="button" class="list-group-item " style="margin-bottom: 15px">用车情况</button>
         </div>
         <div style="width:68%;height: 495px;border: 1px solid #878787;display: inline-block;vertical-align: top;position: relative;left:11%;">
@@ -72,10 +72,16 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>姓名</th>
-                <th>性别</th>
-                <th>身份证</th>
-                <th>电话</th>
+                <th>车牌号</th>
+                <th>车辆类型</th>
+                <th>车辆型号</th>
+                <th>座位数</th>
+                <th>颜色</th>
+                <th>购车时间</th>
+                <th>购车金额</th>
+                <th>到保时间</th>
+                <th>投保金额</th>
+                <th>备注</th>
                 <th>状态</th>
                 <th>操作</th>
               </tr>
@@ -84,17 +90,24 @@
               <foreach name="list" item="vo">
                 <tr>
                     <th scope="row">{$vo.id}</th>
-                    <td>{$vo.driver_name}</td>
-                    <td>{$vo.driver_sex}</td>
-                    <td>{$vo.driver_card}</td>
-                    <td>{$vo.driver_tell}</td>
+                    <td>{$vo.num}</td>
+                    <td>{$vo.type}</td>
+                    <td>{$vo.model}</td>
+                    <td>{$vo.nums}</td>
+                    <td>{$vo.color}</td>
+                    <td>{$vo.time}</td>
+                    <td>{$vo.money}</td>
+                    <td>{$vo.ins_expire_time}</td>
+                    <td>{$vo.ins_money}</td>
+                    <td>{$vo.car_note}</td>
                     <td>
-                        <switch name="vo.driver_type">
+                        <switch name="vo.state">
                                 <case value="0">正常</case>
-                                <case value="1">锁定</case>
+                                <case value="1">不可用</case>
                         </switch>
                     </td>
-                    <td><a href="__ROOT__/index.php/Home/File/alert?id={$vo.id}">修改</a> | <a href="__ROOT__/index.php/Home/File/cloce?id={$vo.id}">改态</a> | <a href="__ROOT__/index.php/Home/File/del?id={$vo.id}">删除</a></td>
+
+                    <td><a href="__ROOT__/index.php/Home/Car/alert?id={$vo.id}">修改</a> | <a href="__ROOT__/index.php/Home/Car/cloce?id={$vo.id}">改态</a> | <a href="__ROOT__/index.php/Home/Car/del?id={$vo.id}">删除</a></td>
                   </tr>
             </foreach>
             </tbody>
@@ -146,7 +159,7 @@ $('#add-btn').click(function(){
         shadeClose: true,
         maxmin: true,
         area: ['60%', '80%'],
-        content: '__ROOT__/index.php/Home/File/add.html',
+        content: '__ROOT__/index.php/Home/Car/add.html',
         });
     
 });

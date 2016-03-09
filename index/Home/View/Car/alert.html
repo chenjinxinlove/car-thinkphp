@@ -66,25 +66,54 @@
         <div style="width:68%;height: 495px;border: 1px solid #878787;display: inline-block;vertical-align: top;position: relative;left:11%;">
         <div class="table-responsive" style="width:500px;margin-left: 50px;margin-top:20px;">
 
-             <form action="__ROOT__/index.php/Home/File/alertinfo?id={$id}" method="post">
+            <form action="__ROOT__/index.php/Home/Car/alertinfo?id={$content[0].id}" method="post" >
+               <div style="width:250px;float: left">
+                 <div class="form-group">
+                      <label for="exampleInputEmail1">车牌号</label>
+                      <input type="text" class="form-control" name="num" value="{$content[0].num}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">车辆类型</label>
+                      <input type="text" class="form-control" name="type" value="{$content[0].type}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">车辆型号</label>
+                      <input type="text" class="form-control" name="model" value="{$content[0].mode}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">座位数</label>
+                      <input type="text" class="form-control" name="nums" value="{$content[0].nums}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">颜色</label>
+                      <input type="text" class="form-control" name="color" value="{$content[0].color}">
+                    </div>
+               </div>
+                <div style="width:250px;float: right;">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">姓名</label>
-                    <input type="text" class="form-control" name="name" value="{$content[0].driver_name}">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">性别</label>
-                    <input type="text" class="form-control" name="sex" value="{$content[0].driver_sex}" >
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">身份证</label>
-                    <input type="text" class="form-control" name="card" placeholder="输入部门" value="{$content[0].driver_card}">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">电话</label>
-                    <input type="text" class="form-control" name="tell" placeholder="输入部门电话" value="{$content[0].driver_tell}">
-                  </div>
-                  <button type="submit" class="btn btn-primary">修改</button>
-              </form>
+                    <label for="exampleInputEmail1">购车时间</label>
+                      <input type="text" class="form-control" name="time" value="{$content[0].time}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">购车金额</label>
+                      <input type="text" class="form-control" name="money" value="{$content[0].money}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">到保时间</label>
+                      <input type="text" class="form-control" name="ins_expire_time" value="{$content[0].ins_expire_time}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">投保金额</label>
+                      <input type="text" class="form-control" name="ins_money" value="{$content[0].ins_time}" >
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">备注</label>
+                      <input type="text" class="form-control" name="car_note" value="{$content[0].car_note}">
+                    </div>
+                    
+                </div>    
+                <button type="submit" class="btn btn-primary">修改</button>    
+            </form>
  
 </section>
 	
