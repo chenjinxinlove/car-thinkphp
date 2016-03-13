@@ -1,0 +1,139 @@
+<div class="container">
+	<div class="row">
+		<div class="span6 col-sm-6">
+			<h3 class="text-left" style="margin-bottom: 20px;">
+				订单号：{$ind.uid} 
+				<small>状态：
+					<switch name="ind.state">
+                            <case value="0" >待审批</case>
+                            <case value="1" >不通过</case>
+                            <case value="2" >审核通过</case>
+                            <case value="3" >以完成</case>
+                            <case value="4" >正在进行</case>
+                            <case value="5" >未评价</case>
+                            <case value="6" >拼车订单待审核</case>
+                     </switch>
+				</small>
+			</h3>
+			<dl >
+				<dt >
+					用车部门 | 用车人 | 联系电话 | 用车人数
+				</dt>
+				<dd>
+					{$ind.section} | {$ind.note} | {$ind.tel} | {$ind.num}
+				</dd>
+				<dt>
+					出发时间 | 预计返回时间
+				</dt>
+				<dd>
+					{$ind.start_time|date="y-m-d h:i",###} | {$ind.return_time|date="y-m-d h:i",###}
+				</dd>
+				<dt>
+					地址
+				</dt>
+				<dd>
+				    <switch name="ind.adrid">
+                            <case value="0" >三河</case>
+                            <case value="1" >燕郊</case>
+                            <case value="2" >北京</case>
+                            <case value="3" >廊坊</case>
+                            <case value="4" >石家庄</case>
+                            <case value="5" >秦皇岛</case>
+                            <case value="6" >其他</case>
+                     </switch>{$ind.adress}
+				</dd>
+				<dt>
+					事由
+				</dt>
+				<dd>
+					{$ind.reason}
+				</dd>
+				<dt>
+					时间节点
+				</dt>
+				<dd>
+					<p>
+						创建时间：{$ind.creat_time|date="y-m-d h:i",###}
+						审核时间：
+						<if condition="strlen($ind.shenhe) eq 4">
+							{$ind.shenhe|date="y-m-d h:i",###}
+						</if>
+					</p>
+					<p>
+						离开工厂时间：
+						<if condition="strlen($ind.menweili) eq 4">
+							{$ind.menweili|date="y-m-d h:i",###}
+						</if>
+						完成时间：{$ind.complete|date="y-m-d h:i"}
+						<if condition="strlen($ind.complete) eq 4">
+							{$ind.complete|date="y-m-d h:i"}
+						</if>
+					</p>
+					
+				</dd>
+				<dt>
+					评价
+				</dt>
+				<dd>
+					{$ind.evaluate}
+				</dd>
+			</dl>
+		</div>
+		<div class="span6 col-sm-6 " style="margin-top:20px" ;>
+			<form class="form-inline" action="{:U('pccheck')}" method="post">
+					<dl >
+						<dt >
+							拼车部门 | 拼车人 | 联系电话 | 拼车人数
+						</dt>
+						<dd>
+							{$ind.psection} | {$ind.pnote} | {$ind.ptel} | {$ind.pnum}
+						</dd>
+						<dt>
+							出发时间 | 预计返回时间
+						</dt>
+						<dd>
+							{$ind.start_time|date="y-m-d h:i",###} | {$ind.preturn_time|date="y-m-d h:i",###}
+						</dd>
+						<dt>
+							地址
+						</dt>
+						<dd>
+						    <switch name="ind.padrid">
+		                            <case value="0" >三河</case>
+		                            <case value="1" >燕郊</case>
+		                            <case value="2" >北京</case>
+		                            <case value="3" >廊坊</case>
+		                            <case value="4" >石家庄</case>
+		                            <case value="5" >秦皇岛</case>
+		                            <case value="6" >其他</case>
+		                     </switch>{$ind.paddress}
+						</dd>
+					</dl>
+
+					<label>处理人：</label><input type="text" name="name" /> <span class="help-block">请填写处理人，拒绝请务必填写关闭理由</span>
+					<div style="margin: 10px 0"></div>
+					
+					  
+				       <input type="text" style="display: none" name='num' value="{$ind.num}">
+				       <input type="text" style="display: none" name="uid" value="{$ind.uid}">
+					<div style="margin: 10px 0">
+						<button class="btn btn-primary" type="submit">同意</button>
+					</div>
+					
+				</fieldset>
+			</form>
+			<div style="margin:40px 0">
+						<form class="form-inline" action="{:U('pcclose')}" method="post">
+						  <div class="form-group">
+						    <div class="input-group">
+						      <input type="text"  class="form-control" id="exampleInputAmount" placeholder="填写关闭理由" name="reason">
+						    </div>
+						  </div>
+						  <input type="text" style="display: none" name="uid" value="{$ind.uid}">
+						  <div style="margin: 20px"></div>
+						  <button type="submit" class="btn btn-danger">拒绝拼车</button>
+						</form>
+					</div>	
+		</div>
+	</div>
+</div>

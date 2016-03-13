@@ -12,8 +12,8 @@ Class ApplyModel extends RelationModel {
 			'foreign_key'=>  'uid',
 			// 'mapping_fields' => 'car',
 			// 'as_fields' => 'car'
-			 'mapping_fields' => 'evaluate,car,driver,shenhe,menweili,complete,residue',
-			 'as_fields' => 'evaluate,car,driver,shenhe,menweili,complete,residue'
+			 'mapping_fields' => 'evaluate,car,driver,shenhe,menweili,complete,residue,chepai,slicheng,swancheng,driver_tell',
+			 'as_fields' => 'evaluate,car,driver,shenhe,menweili,complete,residue,chepai,slicheng,swancheng,driver_tell'
 			),
 		
 		);

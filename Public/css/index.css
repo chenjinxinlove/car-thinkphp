@@ -36,7 +36,7 @@ ul{
 	float: right;
 	line-height: 50px;
 	width: 150px;
-	text-align: right;
+	text-align: center;
 	background-color: #1E90FF;
 	border-radius:6px;
 }
@@ -62,7 +62,7 @@ ul{
 	display: block;
 	width: 310px;
 	height: 40px;
-	line-height:30px;
+	line-height:44px;
 	text-align: center;
 	color: #fff;
 	float: left;

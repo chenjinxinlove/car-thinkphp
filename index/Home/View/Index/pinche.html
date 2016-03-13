@@ -35,16 +35,16 @@
 <body>
 	<div class="top">
 		<div class="top-1">
-			<span class="top-left"><img src="__PUBLIC__/images/apply/three.png"></span>
-			<span class="top-left">订单中心</span>
-			<div class="top-right" id="top_1-1">
-				<span>信息管理部</span>
-			</div>
+		<span class="top-left"><img src="__PUBLIC__/images/apply/u0.png"></span>
+		<span class="top-left"><a style="text-decoration: none;font-size: 22px" href="__ROOT__/index.php/Home/Order?section={$section}">订单中心</a></span>
+		<div class="top-right" id="top_1-1" style="display: block;">
+			<a href="__ROOT__"><span >首页</span></a>
 		</div>
+	</div>
 	</div>
 	<div class="main">
 		<div class="main-top">
-			<span><p>拼车订单</p></span>
+			<!-- <span><p>拼车订单</p></span> -->
 		</div>
 		<form action="__ROOT__/index.php/Home/Index/pincheadd" method="post" id="validate">
 		<div class="main-left" style="border-right: 2px dotted #ccc">
@@ -121,7 +121,7 @@
 				<li>
 					<span>用车人：</span>
 					<p class="u">*</p>
-					<input type="text" name="yongche" id="pfanhui">
+					<input type="text" name="yongche" id="yongche">
 				</li>
 				<li>
 					<span>用车人数：</span>
@@ -138,7 +138,7 @@
 					<p class="u">*</p>
 					<textarea rows="2" cols="20" name="pyongtu" id="yongtu"></textarea>
 				</li>
-				<input type="text"  value="1" name="psection" style="display: none">
+				<input type="text"  value="{$section}" name="psection" style="display: none">
 			</ul>	
 		</div>
 		<div class="main-bottom" style="margin-top: 20px;">

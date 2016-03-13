@@ -11,59 +11,18 @@
 </head>
 <body>
 <header role="banner" >
-    <nav role="navigation" class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html"><img src="__PUBLIC__/images/icon/xch.ico" alt="xhc'" ></a>
-        </div>
-        <div class="navbar-collapse collapse " style="line-height: 90px;position: relative;left: 100px;">
-          <ul class="nav navbar-nav nav-top" >
-            <li class="dropdown " style="margin-left: 25px;">
-                <button type="button" class="btn btn-primary  btn-lg">
-				  <span class="glyphicon glyphicon-briefcase" aria-hidden="true">档案管理</span>
-				</button>
-            </li>
-            <li class="dropdown" style="margin-left: 25px;">
-                <button type="button" class="btn btn-default btn-lg">
-				  <span class="glyphicon glyphicon-refresh" aria-hidden="true">车辆调度</span>
-				</button>
-            </li>
-            <li class="dropdown" style="margin-left: 25px;">
-                <button type="button" class="btn btn-default btn-lg ">
-				  <span class="glyphicon glyphicon-edit" aria-hidden="true">报表管理</span>
-				</button>
-            </li>
-            <li class="dropdown" style="margin-left: 25px;">
-                <button type="button" class="btn  btn-lg btn-default">
-				  <span class="glyphicon glyphicon-paperclip" aria-hidden="true">系统设置</span>
-				</button>
-            </li>
-            <li class="dropdown" style="margin-left: 25px;">
-                <button type="button" class="btn btn-default btn-lg">
-				  <span class="glyphicon glyphicon-tree-conifer" aria-hidden="true">关于软件</span>
-				</button>
-            </li>
-            <li class="dropdown" style="margin-left: 25px;">
-                <button type="button" class="btn btn-danger ">
-                  <span class="glyphicon glyphicon-off" aria-hidden="true">退出</span>
-                </button>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div><!--/.container -->
-    </nav>
+    <include file='common:nav'/>
 </header>
 
 <main role="main">
         <div class="list-group" style="width: 13%;height:495px;position: relative;left:10%;border: 1px solid #878787;padding:8px;display: inline-block;vertical-align: top;">
-            <button type="button" class="list-group-item active" style="margin-bottom: 15px">车辆管理</button>
-            <button type="button" class="list-group-item " style="margin-bottom: 15px">驾驶员管理</button>
-            <button type="button" class="list-group-item " style="margin-bottom: 15px">用车情况</button>
+            <a href="__ROOT__/index.php/Home/Car" style="text-decoration: none">
+                <button type="button" class="list-group-item active" style="margin-bottom: 15px">车辆管理</button>
+            </a>
+            <a href="__ROOT__/index.php/Home/File" style="text-decoration: none">
+                <button type="button" class="list-group-item " style="margin-bottom: 15px">驾驶员管理</button>
+            </a>
+            
         </div>
         <div style="width:68%;height: 495px;border: 1px solid #878787;display: inline-block;vertical-align: top;position: relative;left:11%;">
         <button  id="add-btn" type="button" class="btn btn-primary" style="margin:10px 100px">新增</button>
@@ -93,7 +52,7 @@
                     <td>{$vo.num}</td>
                     <td>{$vo.type}</td>
                     <td>{$vo.model}</td>
-                    <td>{$vo.nums}</td>
+                    <td>{$vo.numsq}</td>
                     <td>{$vo.color}</td>
                     <td>{$vo.time}</td>
                     <td>{$vo.money}</td>

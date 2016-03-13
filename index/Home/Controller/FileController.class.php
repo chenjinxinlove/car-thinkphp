@@ -41,14 +41,14 @@ class FileController extends CommonController {
             $where['id'] = $id;
             $lock = M('driver') -> where($where) -> select();
             // p($lock);die;
-            $lock = $lock[0]['driver_type'];
+            $lock = $lock[0]['type'];
             if ((int)$lock) {
               $lock = '0';
             }else{
               $lock = '1';
             }
             // echo $lock;die;
-            $data['driver_type'] = $lock;
+            $data['type'] = $lock;
             if (M('driver') -> where($where) -> save($data));
             {
                 $this->success('改态成功');die;
@@ -111,4 +111,5 @@ class FileController extends CommonController {
         $this -> error ('修改失败！');
    }
 
+  
 }

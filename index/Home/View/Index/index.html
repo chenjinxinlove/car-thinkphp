@@ -10,11 +10,18 @@
 <div class="top">
 	<div class="top-1">
 		<span class="top-left"><img src="__PUBLIC__/images/apply/u0.png"></span>
-		<span class="top-left">订单中心</span>
-		<div class="top-right" id="top_1-1">
-			<span style="margin-right: 30px;">信息管理部</span>
+		<span class="top-left"><a style="text-decoration: none;font-size: 22px" href="__ROOT__/index.php/Home/Order?section={$section}">订单中心</a></span>
+		<div class="top-right" id="top_1-1" style="display: block;">
+			<span >{$section}</span>
 		</div>
 	</div>
+</div>
+<div style="margin: 18px auto;width:250px">
+	<a href="{:U('Index/apply')}?section={$section}" >
+		<button  style="background-color: #2e2b3e;height: 63px;width: 207px;border-radius: 10px " >
+			<span style="color:#FFFF77;font-size: 26px;">申请车俩</span>
+		</button>
+	</a>
 </div>
 <div class="main">
 	<div class="main-1">
@@ -40,7 +47,7 @@
 					</div>
 					<div class="total-3 center">
 						<ul >
-							<li><span id="center" ><a href="{:U('Index/pinche')}?car={$key}">拼车</a></span></li>
+							<li><span id="center" ><a href="{:U('Index/pinche')}?car={$key}&section={$section}">拼车</a></span></li>
 						</ul>
 					</div>
 					<!-- {*遍历生成主文件*} -->
@@ -80,11 +87,23 @@
 										                            <case value="4" >石家庄</case>
 										                            <case value="5" >秦皇岛</case>
 										                            <case value="6" >其他</case>
-										                     </switch>	
+	 									                     </switch>	
 														</span>
 													<span>出发时间：{$voa.start_time|date="d h:i",###}</span>
 													<span>预计返回：{$voa.return_time|date="d h:i",###}</span>
-													<span style="color: red">剩余:{$voa.residue}座位</span>
+													<if condition='$voa.state eq 4'>
+														<span style="color: grey">正在进行</span>
+													</if>
+													<if condition='$voa.state eq 2'>
+														<span style="color: red">剩余:{$voa.residue}座位</span>
+													</if>
+													<if condition='$voa.state eq 6'>
+														<span style="color: grey">拼车待审核</span>
+													</if>
+													<if condition='$voa.state eq 3'>
+														<span style="color: grey">已完成</span>
+													</if>
+
 												</li>
 											</if>		
 										</if>	

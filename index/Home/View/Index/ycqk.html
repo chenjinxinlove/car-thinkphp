@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单展示</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index1.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/main.css">
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+</head>
+<body>
+<header role="banner" >
+    <include file='common:nav'/>
+</header>
+
+<main role="main" >
+        <div class="list-group" style="width: 13%;height:495px;position: relative;left:10%;border: 1px solid #878787;padding:8px;display: inline-block;vertical-align: top;">
+            <a href="__ROOT__/index.php/Home/Index/admin" style="text-decoration: none"><button type="button" class="list-group-item " style="margin-bottom: 15px">订单审批</button></a>
+            <a href="__ROOT__/index.php/Home/Index/ycqk" style="text-decoration: none"><button type="button" class="list-group-item active" style="margin-bottom: 15px">用车情况</button></a>
+        </div>
+        <div style="width:68%;height: 495px;border: 1px solid #878787;display: inline-block;vertical-align: top;position: relative;left:11%;overflow: auto">
+        	
+
+        	<!-- 开始 -->
+				<div class="main" style="margin-top: -10px">
+	<div class="main-1">
+		<ul>
+			<li class="jjff"><span style="width: 150px">三天出车信息</span></li>
+			
+			<li><span style="width: 250px">{$time[0] |date="m-d",###}</span></li>
+			<li><span style="width: 250px">{$time[1] |date="m-d",###}</span></li>
+			<li><span style="width: 250px">{$time[2] |date="m-d",###}</span></li>
+			
+		</ul>
+	</div>
+	<foreach name='li' item='vo'>
+	<foreach name='vo' item='vo1'>
+	<div class="main-total">
+		
+				
+					<!-- {*车辆栏*} -->
+					<div class="total-1">
+						<ul>
+							<li class="jkhkl">{$key}</li>
+						</ul>
+					</div>
+					
+					<!-- {*遍历生成主文件*} -->
+						<foreach name='vo1' item='vo11'>
+							<div class="total-2">	
+								<ul style="display: block;">
+									<volist name="vo11" id="voa">	
+										<if condition="count($voa) gt '4' ">
+											<if condition="(int)$voa.carpooling eq '0'">
+												<li style="border-bottom: 1px #e4e4e4 solid; width:310px;height: 50px;">
+
+													<span>部门:{$voa.section}</span>
+													<span>目的地：
+														<switch name="voa.adrid">
+									                            <case value="0" >三河</case>
+									                            <case value="1" >燕郊</case>
+									                            <case value="2" >北京</case>
+									                            <case value="3" >廊坊</case>
+									                            <case value="4" >石家庄</case>
+									                            <case value="5" >秦皇岛</case>
+									                            <case value="6" >其他</case>
+									                     </switch>	
+													</span>
+													<span>出发时间：{$voa.start_time|date="d h:i",###}</span>
+													<span>预计返回：{$voa.return_time|date="d h:i",###}</span>
+													<span style="color: block">剩余:无座位</span>
+												</li>	
+											<else/>
+												<li style="border-bottom: 1px #e4e4e4 solid; width:310px;height: 50px;">
+													<span>部门:{$voa.section}</span>
+														<span>目的地：
+															<switch name="voa.adrid">
+										                            <case value="0" >三河</case>
+										                            <case value="1" >燕郊</case>
+										                            <case value="2" >北京</case>
+										                            <case value="3" >廊坊</case>
+										                            <case value="4" >石家庄</case>
+										                            <case value="5" >秦皇岛</case>
+										                            <case value="6" >其他</case>
+	 									                     </switch>	
+														</span>
+													<span>出发时间：{$voa.start_time|date="d h:i",###}</span>
+													<span>预计返回：{$voa.return_time|date="d h:i",###}</span>
+													<if condition='$voa.state eq 4'>
+														<span style="color: grey">正在进行</span>
+													</if>
+													<if condition='$voa.state eq 2'>
+														<span style="color: red">剩余:{$voa.residue}座位</span>
+													</if>
+													<if condition='$voa.state eq 6'>
+														<span style="color: grey">拼车待审核</span>
+													</if>
+													<if condition='$voa.state eq 3'>
+														<span style="color: grey">已完成</span>
+													</if>
+
+												</li>
+											</if>		
+										</if>	
+									</volist>
+								</ul>
+								<if condition="count($voa) gt '3'">
+									<ul style="display: block;">
+										<span>参考预计返回时间进行派车</span> 
+									</ul>
+								<else/>
+									<ul style="display: block;">
+										<span>还没有订单，可以派车</span> 
+									</ul>
+								</if>
+							</div>
+						</foreach>
+					
+		
+					<!-- {*操作栏*} -->
+					
+
+				
+				
+			
+			
+
+		
+		<div style="clear: both"></div>
+		</div>
+		</foreach>
+	</foreach>
+	
+</div>
+        	<!-- 开始 -->
+
+
+		</div>
+</main>
+
+<footer> 
+	<ul class="foot">
+		<li><a href="#">Copyright 2007-2108 xxx.com All rights Reserved 新宏昌车辆管理系统于信息管理部开发 如果系统bug请联系信息管理部相关人员</a></li>
+	</ul>
+</footer><!-- footer结束 -->
+	
+</body>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+</html>
